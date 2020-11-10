@@ -1,0 +1,264 @@
+<wsdl:definitions xmlns:corba="http://cxf.apache.org/bindings/corba" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://cxf.apache.org/bindings/corba/idl/IncidentWS" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://cxf.apache.org/bindings/corba/idl/IncidentWS">
+  
+  <corba:typeMapping xmlns:corba="http://cxf.apache.org/bindings/corba" targetNamespace="http://cxf.apache.org/bindings/corba/idl/IncidentWS/typemap">
+    
+    <corba:struct xmlns:tns="http://cxf.apache.org/bindings/corba/idl/IncidentWS" name="Incident" repositoryID="IDL:Incident:1.0" type="tns:Incident">
+      
+      <corba:member idltype="corba:string" name="incident_id"/>
+      
+      <corba:member idltype="corba:string" name="created_timestamp"/>
+      
+      <corba:member idltype="corba:string" name="status"/>
+    
+    </corba:struct>
+  
+  </corba:typeMapping>
+  <wsdl:types>
+
+    <xs:schema xmlns="http://cxf.apache.org/bindings/corba/idl/IncidentWS" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://cxf.apache.org/bindings/corba/idl/IncidentWS">
+  
+      <xs:complexType name="Incident">
+    
+        <xs:sequence>
+      
+          <xs:element name="incident_id" type="xs:string"/>
+      
+          <xs:element name="created_timestamp" type="xs:string"/>
+      
+          <xs:element name="status" type="xs:string"/>
+    
+        </xs:sequence>
+  
+      </xs:complexType>
+  
+      <xs:element name="create_incident">
+    
+        <xs:complexType>
+      
+          <xs:sequence>
+        
+            <xs:element name="incident_id" type="xs:string"/>
+      
+          </xs:sequence>
+    
+        </xs:complexType>
+  
+      </xs:element>
+  
+      <xs:element name="create_incidentResponse">
+    
+        <xs:complexType>
+      
+          <xs:sequence>
+        
+            <xs:element name="return" type="Incident"/>
+      
+          </xs:sequence>
+    
+        </xs:complexType>
+  
+      </xs:element>
+  
+      <xs:element name="find_incident">
+    
+        <xs:complexType>
+      
+          <xs:sequence>
+        
+            <xs:element name="incident_id" type="xs:string"/>
+      
+          </xs:sequence>
+    
+        </xs:complexType>
+  
+      </xs:element>
+  
+      <xs:element name="find_incidentResponse">
+    
+        <xs:complexType>
+      
+          <xs:sequence>
+        
+            <xs:element name="return" type="Incident"/>
+      
+          </xs:sequence>
+    
+        </xs:complexType>
+  
+      </xs:element>
+  
+      <xs:element name="remove_incident">
+    
+        <xs:complexType>
+      
+          <xs:sequence>
+        
+            <xs:element name="incident_id" type="xs:string"/>
+      
+          </xs:sequence>
+    
+        </xs:complexType>
+  
+      </xs:element>
+  
+      <xs:element name="remove_incidentResponse">
+    
+        <xs:complexType>
+      
+          <xs:sequence/>
+    
+        </xs:complexType>
+  
+      </xs:element>
+
+    </xs:schema>
+  
+  </wsdl:types>
+  
+  <wsdl:message name="remove_incident">
+    
+    <wsdl:part element="tns:remove_incident" name="inparameter">
+    </wsdl:part>
+  
+  </wsdl:message>
+  
+  <wsdl:message name="find_incident">
+    
+    <wsdl:part element="tns:find_incident" name="inparameter">
+    </wsdl:part>
+  
+  </wsdl:message>
+  
+  <wsdl:message name="create_incidentResponse">
+    
+    <wsdl:part element="tns:create_incidentResponse" name="outparameter">
+    </wsdl:part>
+  
+  </wsdl:message>
+  
+  <wsdl:message name="find_incidentResponse">
+    
+    <wsdl:part element="tns:find_incidentResponse" name="outparameter">
+    </wsdl:part>
+  
+  </wsdl:message>
+  
+  <wsdl:message name="create_incident">
+    
+    <wsdl:part element="tns:create_incident" name="inparameter">
+    </wsdl:part>
+  
+  </wsdl:message>
+  
+  <wsdl:message name="remove_incidentResponse">
+    
+    <wsdl:part element="tns:remove_incidentResponse" name="outparameter">
+    </wsdl:part>
+  
+  </wsdl:message>
+  
+  <wsdl:portType name="IncidentService">
+    
+    <wsdl:operation name="create_incident">
+      
+      <wsdl:input message="tns:create_incident" name="create_incidentRequest">
+    </wsdl:input>
+      
+      <wsdl:output message="tns:create_incidentResponse" name="create_incidentResponse">
+    </wsdl:output>
+    
+    </wsdl:operation>
+    
+    <wsdl:operation name="find_incident">
+      
+      <wsdl:input message="tns:find_incident" name="find_incidentRequest">
+    </wsdl:input>
+      
+      <wsdl:output message="tns:find_incidentResponse" name="find_incidentResponse">
+    </wsdl:output>
+    
+    </wsdl:operation>
+    
+    <wsdl:operation name="remove_incident">
+      
+      <wsdl:input message="tns:remove_incident" name="remove_incidentRequest">
+    </wsdl:input>
+      
+      <wsdl:output message="tns:remove_incidentResponse" name="remove_incidentResponse">
+    </wsdl:output>
+    
+    </wsdl:operation>
+  
+  </wsdl:portType>
+  
+  <wsdl:binding name="IncidentServiceCORBABinding" type="tns:IncidentService">
+    
+    <corba:binding xmlns:corba="http://cxf.apache.org/bindings/corba" repositoryID="IDL:IncidentService:1.0"/>
+    
+    <wsdl:operation name="create_incident">
+      
+      <corba:operation xmlns:corba="http://cxf.apache.org/bindings/corba" name="create_incident">
+        
+        <corba:param idltype="corba:string" mode="in" name="incident_id"/>
+        
+        <corba:return xmlns:ns3="http://cxf.apache.org/bindings/corba/idl/IncidentWS/typemap" idltype="ns3:Incident" name="return"/>
+      
+      </corba:operation>
+      
+      <wsdl:input name="create_incidentRequest">
+      </wsdl:input>
+      
+      <wsdl:output name="create_incidentResponse">
+      </wsdl:output>
+    
+    </wsdl:operation>
+    
+    <wsdl:operation name="find_incident">
+      
+      <corba:operation xmlns:corba="http://cxf.apache.org/bindings/corba" name="find_incident">
+        
+        <corba:param idltype="corba:string" mode="in" name="incident_id"/>
+        
+        <corba:return xmlns:ns3="http://cxf.apache.org/bindings/corba/idl/IncidentWS/typemap" idltype="ns3:Incident" name="return"/>
+      
+      </corba:operation>
+      
+      <wsdl:input name="find_incidentRequest">
+      </wsdl:input>
+      
+      <wsdl:output name="find_incidentResponse">
+      </wsdl:output>
+    
+    </wsdl:operation>
+    
+    <wsdl:operation name="remove_incident">
+      
+      <corba:operation xmlns:corba="http://cxf.apache.org/bindings/corba" name="remove_incident">
+        
+        <corba:param idltype="corba:string" mode="in" name="incident_id"/>
+      
+      </corba:operation>
+      
+      <wsdl:input name="remove_incidentRequest">
+      </wsdl:input>
+      
+      <wsdl:output name="remove_incidentResponse">
+      </wsdl:output>
+    
+    </wsdl:operation>
+  
+  </wsdl:binding>
+  
+  <wsdl:service name="IncidentServiceCORBAService">
+    
+    <wsdl:port binding="tns:IncidentServiceCORBABinding" name="IncidentServiceCORBAPort">
+      
+      <corba:address xmlns:corba="http://cxf.apache.org/bindings/corba" location="corbaname::localhost:1050#IncidentWS"/>
+      
+   
+    </wsdl:port>
+  
+  </wsdl:service>
+  
+
+</wsdl:definitions>
