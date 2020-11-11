@@ -4,15 +4,12 @@
  * Incident IDL poc sample
  */
  
- interface Incident{
-	   string get_incident_id();
-	   void set_incident_id(in string incident_id);
+ struct Incident{
+	    string incident_id;
 	   
-	   string get_status();
-	   void set_status(in string status);
+	    string status;
 	   
-	   string get_created_timestamp();
-	   void set_created_timestamp(in string created_timestamp);
+	    string created_timestamp;
 };
 
 interface IncidentService{

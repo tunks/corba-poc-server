@@ -6,7 +6,6 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.ws.wsaddressing.W3CEndpointReference;
 
 
 /**
@@ -19,7 +18,7 @@ import javax.xml.ws.wsaddressing.W3CEndpointReference;
  *   &amp;lt;complexContent&amp;gt;
  *     &amp;lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt;
  *       &amp;lt;sequence&amp;gt;
- *         &amp;lt;element name="return" type="{http://www.w3.org/2005/08/addressing}EndpointReferenceType"/&amp;gt;
+ *         &amp;lt;element name="return" type="{http://cxf.apache.org/bindings/corba/idl/IncidentWS}Incident"/&amp;gt;
  *       &amp;lt;/sequence&amp;gt;
  *     &amp;lt;/restriction&amp;gt;
  *   &amp;lt;/complexContent&amp;gt;
@@ -35,18 +34,18 @@ import javax.xml.ws.wsaddressing.W3CEndpointReference;
 @XmlRootElement(name = "find_incidentResponse")
 public class FindIncidentResponse {
 
-    @XmlElement(name = "return", required = true, nillable = true)
-    protected W3CEndpointReference _return;
+    @XmlElement(name = "return", required = true)
+    protected Incident _return;
 
     /**
      * Gets the value of the return property.
      * 
      * @return
      *     possible object is
-     *     {@link W3CEndpointReference }
+     *     {@link Incident }
      *     
      */
-    public W3CEndpointReference getReturn() {
+    public Incident getReturn() {
         return _return;
     }
 
@@ -55,10 +54,10 @@ public class FindIncidentResponse {
      * 
      * @param value
      *     allowed object is
-     *     {@link W3CEndpointReference }
+     *     {@link Incident }
      *     
      */
-    public void setReturn(W3CEndpointReference value) {
+    public void setReturn(Incident value) {
         this._return = value;
     }
 

@@ -1,7 +1,6 @@
 package com.att.kepler.corba.server;
 
 import java.util.Properties;
-
 import org.omg.CORBA.ORB;
 import org.omg.CORBA.UserException;
 import org.omg.CosNaming.NameComponent;
@@ -12,6 +11,12 @@ import org.omg.PortableServer.POAHelper;
 import org.omg.PortableServer.POAManager;
 import com.att.kepler.common.corba.IncidentServiceHelper;
 
+/**
+ * 
+ * Native CORBA server 
+ *  
+ * @author et623d
+ **/
 
 public final class Server {
     private Server() {}
@@ -46,7 +51,7 @@ public final class Server {
         // Run implementation
         //
         manager.activate();
-        System.out.println("Server ready...");
+        System.out.println("Corba Server ready...");
         orb.run();
 
         return 0;
