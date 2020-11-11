@@ -21,6 +21,8 @@ prompt, run:
 
 3. Run CORBA/CXF Server and Client
 -------------------------------------------------
+Different options to run CXF/CORBA
+
 Start the pure CORBA server by running
   mvn -Pcorba.server
 
